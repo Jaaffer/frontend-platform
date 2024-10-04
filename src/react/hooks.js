@@ -1,7 +1,8 @@
 /* eslint-disable import/prefer-default-export */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { subscribe, unsubscribe } from '../pubSub';
 import { sendTrackEvent } from '../analytics';
+import { getConfig } from './config';
 
 /**
  * A React hook that allows functional components to subscribe to application events.  This should
@@ -48,3 +49,22 @@ export const useTrackColorSchemeChoice = () => {
     };
   }, []);
 };
+
+export const useToFetchStyleSheet = () => {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+      setLoading(true);
+      const link = document.createElement('link');
+      link.setAttribute('rel','stylesheet')
+      if(getConfig().VARIABLE_CSS_FILE) {
+        link.setAttribute('href', getConfig().VARIABLE_CSS_FILE)
+      }
+      else {
+        link.setAttribute('href','https://stg-xenops-openedx-saas-theme-css.s3.ap-southeast-2.amazonaws.com/saas_themes/static/css/default.css')
+      }
+      document.head.appendChild(link);
+      setLoading(false);
+    },[])
+    return [loading];
+}

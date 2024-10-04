@@ -42,3 +42,6 @@ export {
   initializeMockApp,
   mockMessages,
 } from './testing';
+export {
+  useToFetchStyleSheet
+} from './react/hooks';
