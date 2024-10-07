@@ -1,10 +1,12 @@
 {
-  "name": "@edx/frontend-platform",
-  "version": "1.0.0-semantically-released",
+  "name": "@jaaffer/frontend-platform",
+  "version": "1.0.0",
   "description": "Foundational application framework for Open edX micro-frontend applications.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://npm.pkg.github.com."
   },
   "sideEffects": false,
   "scripts": {
@@ -18,24 +20,33 @@
     "test": "fedx-scripts jest --coverage",
     "test:watch": "npm run test -- --watch"
   },
+  "files": [
+    "/analytics",
+    "/auth",
+    "/i18n",
+    "/logging",
+    "/react",
+    "/scripts",
+    "/testing"
+  ],
   "bin": {
     "intl-imports.js": "i18n/scripts/intl-imports.js",
     "transifex-utils.js": "i18n/scripts/transifex-utils.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openedx/frontend-platform.git"
+    "url": "git+https://github.com/Jaaffer/frontend-platform.git"
   },
   "author": "edX",
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/openedx/frontend-platform/issues"
+    "url": "https://github.com/Jaaffer/frontend-platform/issues"
   },
-  "homepage": "https://github.com/openedx/frontend-platform#readme",
+  "homepage": "https://github.com/Jaaffer/frontend-platform#readme",
   "devDependencies": {
     "@edx/brand": "npm:@openedx/brand-openedx@^1.2.2",
     "@edx/browserslist-config": "1.2.0",
-    "@openedx/frontend-build": "14.1.1",
+    "@openedx/frontend-build": "14.1.5",
     "@openedx/paragon": "22.6.1",
     "@testing-library/jest-dom": "6.4.6",
     "@testing-library/react": "12.1.5",
@@ -44,7 +55,7 @@
     "husky": "8.0.3",
     "jest-environment-jsdom": "29.7.0",
     "jsdoc": "^4.0.0",
-    "nodemon": "3.1.4",
+    "nodemon": "3.1.7",
     "prop-types": "15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
